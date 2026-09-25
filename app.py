@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route("/melhorCombustivel")
+@app.route("/melhorCombustivel",methods=['POST'])
 def calcular_combustivel():
     gasolina = None
     etanol = None
@@ -19,10 +19,14 @@ def calcular_combustivel():
         result = "Etanol" if etanol <= gasolina*0.75 else "Gasolina"
         msg = f"Melhor abastecer com {result}."
     return render_template("index.html", msg=msg)
-    
-    
-    if __name__ == "__main__":
-        app.run(debug=True)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)t
+
+
+
+
     
     
     
